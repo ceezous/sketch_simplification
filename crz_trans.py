@@ -6,6 +6,7 @@ def get_args():
     parser = argparse.ArgumentParser(description="Using model_pencil2 to transform images.")
     parser.add_argument("-i", "--inpath", dest="inp", default=None, type=str, help="Input path.")
     parser.add_argument("-o", "--outpath", dest="outp", default=None, type=str, help="Output path.")
+    parser.add_argument("-m", "--model", dest="model", default=None, type=str, help="Set model.")
     return parser.parse_args()
 
 if __name__ == "__main__":
@@ -27,4 +28,4 @@ if __name__ == "__main__":
         print(f"Handling with {img}.")
         inpath = os.path.join(args.inp, img)
         outpath = os.path.join(args.outp, img)
-        os.system(f"python simplify.py --img {inpath} --out {outpath} --model model_pencil2")
+        os.system(f"python simplify.py --img {inpath} --out {outpath} --model {args.model}")
